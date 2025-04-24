@@ -1,12 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IntoLibrary</title>
-    <link rel="stylesheet" href="landing.css">
+    <link rel="stylesheet" href="landing.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 </head>
+
 <body>
-    <h2>Checking weather the db is attached to the static files and taking the stactic files data!</h2>
+
+    <nav class="navbar">
+        <div class="logo"><i class="fa-solid fa-book-open-reader"></i> IntoLibrary</div>
+        <ul class="nav-links">
+            <li><a href="/add"><i class="fa-solid fa-plus"></i> Add Book</a></li>
+            <li><a href="/update"><i class="fa-solid fa-pen-to-square"></i> Update</a></li>
+            <li><a href="/read"><i class="fa-solid fa-eye"></i> Read Info</a></li>
+            <li><a href="/delete"><i class="fa-solid fa-trash"></i> Delete</a></li>
+            <li class="profile"><i class="fa-solid fa-user-circle"></i></li>
+        </ul>
+    </nav>
+
+    <section class="carousel">
+        <div class="carousel-slide active"
+            style="background-image: url('https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c');">
+            <div class="overlay"></div>
+            <div class="text">
+                <h2>Welcome to IntoLibrary</h2>
+                <p>Your digital space to manage, read, and organize your book world.</p>
+            </div>
+        </div>
+        <div class="carousel-slide"
+            style="background-image: url('https://images.unsplash.com/photo-1524995997946-a1c2e315a42f');">
+            <div class="overlay"></div>
+            <div class="text">
+                <h2>Smart Book Management</h2>
+                <p>Effortlessly add, update, read, or remove books with clean UI.</p>
+            </div>
+        </div>
+        <div class="carousel-slide"
+            style="background-image: url('https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1470&q=80');">
+            <div class="overlay"></div>
+            <div class="text">
+                <h2>Minimal. Fast. Elegant.</h2>
+                <p>Crafted with simplicity and beauty in mind — just for you.</p>
+            </div>
+        </div>
+
+
+
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>IntoLibrary</h3>
+                <p>A lightweight, modern book manager made with love and code.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <a href="#">Add Book</a>
+                <a href="#">Update Book</a>
+                <a href="#">Read Info</a>
+                <a href="#">Delete Book</a>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <a href="#"><i class="fab fa-facebook"></i> Facebook</a>
+                <a href="#"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="#"><i class="fab fa-github"></i> GitHub</a>
+                <a href="#"><i class="fas fa-envelope"></i> Email</a>
+            </div>
+        </div>
+        <p class="footer-credit">&copy; 2025 IntoLibrary. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let index = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+        setInterval(() => {
+            slides.forEach(slide => slide.classList.remove('active'));
+            index = (index + 1) % slides.length;
+            slides[index].classList.add('active');
+        }, 4000);
+    </script>
+
 </body>
+
 </html>

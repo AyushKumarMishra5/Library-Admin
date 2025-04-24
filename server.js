@@ -2,12 +2,31 @@ const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
 const userModel = require('./model/user')
+const path = require('path')
 require('dotenv');
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
 
+app.use(express.static(path.join(__dirname, 'static')));
+app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'template'));
+
+
 app.get('/', (req, res)=>{
-    res.send("Hello the server is ready!")
+    res.sendFile(path.join(__dirname, 'static', 'landing.html'))
+})
+
+app.get('/add', (req, res)=>{
+    res.render('add')
+})
+app.get('/update', (req, res)=>{
+    res.render('update')
+})
+app.get('/read', (req, res)=>{
+    res.render('read')
+})
+app.get('/delete', (req, res)=>{
+    res.render('delete')
 })
 
 app.post('/libbook', (req, res)=>{
@@ -16,13 +35,13 @@ app.post('/libbook', (req, res)=>{
     .catch((err)=> res.json(err))
 })
 
-app.patch('/libbook/:id', (req, res)=>{
+app.patch('/libupdate/:id', (req, res)=>{
     userModel.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true})
     .then((data)=> res.json(data))
     .catch((err)=> res.json(err))
 })
 
-app.patch('/libbook/:id', (req, res)=>{
+app.delete('/libdelete/:id', (req, res)=>{
     userModel.findByIdAndDelete(req.params.id, {$set: req.body}, {new: true})
     .then((data)=> res.json(data))
     .catch((err)=> res.json(err))

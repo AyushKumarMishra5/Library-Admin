@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add a New Book</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff8f0;
+        }
+
+        .add-page {
+            display: flex;
+            height: 100vh;
+        }
+
+        .left-section {
+            width: 50%;
+            padding: 30px;
+            background-color: #f4f0e1;
+            color: #3e3e3e;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            box-shadow: 4px 0 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .left-section h2 {
+            color: #2d2d2d;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .left-section p {
+            color: #3e3e3e;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .left-section ul {
+            color: #3e3e3e;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .left-section ul li {
+            margin-bottom: 10px;
+            padding-left: 10px;
+            position: relative;
+        }
+
+        .left-section ul li:before {
+            content: '';
+            color: #d4a85a;
+            position: absolute;
+            left: 0;
+            font-size: 1.5rem;
+        }
+
+        .right-section {
+            width: 50%;
+            padding: 40px;
+            background-color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            box-shadow: -4px 0 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .right-section h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #2d2d2d;
+        }
+
+        form {
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        form label {
+            font-size: 1rem;
+            margin-bottom: 5px;
+            color: #3e3e3e;
+        }
+
+        form input {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        form button {
+            padding: 10px 20px;
+            background-color: #d4a85a;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #c78e3f;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="add-page">
+        <div class="left-section">
+            <h2>Welcome to IntoLibrary!</h2>
+            <p>IntoLibrary is a modern book management system. Whether you're a casual reader or an avid book collector, 
+                we make it easy to manage your collection.</p>
+            <p>Manage your book collection seamlessly. Keep track of your favorite books, authors, and prices with a 
+                clean, minimalistic interface.</p>
+            <ul>
+                <li>Track all your books in one place</li>
+                <li>Organize by author, genre, or price</li>
+                <li>Simple interface for effortless management</li>
+                <li>Instantly update or delete books</li>
+            </ul>
+        </div>
+
+        <div class="right-section">
+            <h2>Add a New Book</h2>
+            <form action="/libbook" method="POST">
+                <label for="bookname">Book Name:</label>
+                <input type="text" id="bookname" name="bookname" required>
+
+                <label for="author">Author:</label>
+                <input type="text" id="author" name="author" required>
+
+                <label for="price">Price:</label>
+                <input type="text" id="price" name="price" required>
+
+                <button type="submit">Add Book</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>
