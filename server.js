@@ -58,7 +58,7 @@ app.get('/libdata', (req, res)=>{
     .catch((err)=> res.json(err))
 })
 
-mongoose.connect('mongodb://localhost:27017/myLibrary')
+mongoose.connect('mongodb+srv://pro13fessor3:Ashka143@cluster.3fpse0t.mongodb.net/myLibrary')
 .then(()=> console.log("Connected to the database!"))
 .catch((err)=> console.log("Error connecting to the database!"))
 
