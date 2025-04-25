@@ -35,21 +35,22 @@ app.post('/libbook', (req, res)=>{
     .catch((err)=> res.json(err))
 })
 
-app.patch('/libupdate/:id', (req, res)=>{
-    userModel.findByIdAndUpdate(req.params.id, {$set: req.body}, {new: true})
-    .then((data)=> res.json(data))
-    .catch((err)=> res.json(err))
-})
+app.post('/libupdate', (req, res) => {
+    userModel.findOneAndUpdate(
+        { _id: req.body._id },   
+        { $set: req.body },          
+        { new: true }                
+    )
+    .then((data) => res.json(data))
+    .catch((err) => res.json(err));
+});
 
-app.delete('/libdelete/:id', (req, res)=>{
-    userModel.findByIdAndDelete(req.params.id, {$set: req.body}, {new: true})
-    .then((data)=> res.json(data))
-    .catch((err)=> res.json(err))
-})
 
-mongoose.connect('mongodb://localhost:27017/myLibrary')
-.then(()=> console.log("Connected to the database!"))
-.catch((err)=> console.log("Error connecting to the database!"))
+app.post('/libdelete', (req, res) => {
+    userModel.findOneAndDelete({ _id: req.body._id })
+    .then((data) => res.json(data))
+    .catch((err) => res.json(err));
+});
 
 app.get('/libdata', (req, res)=>{
     userModel.find()
@@ -57,6 +58,9 @@ app.get('/libdata', (req, res)=>{
     .catch((err)=> res.json(err))
 })
 
+mongoose.connect('mongodb://localhost:27017/myLibrary')
+.then(()=> console.log("Connected to the database!"))
+.catch((err)=> console.log("Error connecting to the database!"))
 
 const PORT = process.env.PORT || 4000
 

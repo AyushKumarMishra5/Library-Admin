@@ -106,12 +106,13 @@
 
         <div class="right-section">
             <h2>Delete a Book</h2>
-            <form action="/libbook/delete" method="POST">
-                <label for="bookname">Book Unique Identification:</label>
-                <input type="text" id="bookname" name="bookname" required>
-
+            <form action="/libdelete" method="POST">
+                <label for="_id">Book Unique ID:</label>
+                <input type="text" id="_id" name="_id" required>
+            
                 <button type="submit">Delete Book</button>
             </form>
+            
         </div>
     </div>
 </body>
